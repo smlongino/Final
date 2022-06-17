@@ -40,17 +40,27 @@
             <div class ="article-text"></div>  
             <div class = "title"><h2>My Dive Into Seattle Airbnb Data</h2></div>
             <div class ="article-content">
-                <p>Artifical intelligence can help non-profits segment their supporters by certain actions that they are likely to take. Such as giving monthly, making a major gift, attending a fundraiser, or will only give a one-time gift. It can assist in developing effective fundraising campaigns directed at each donor segment.</p>
-                <br>
-                <p>AI is so important for non-profits, especially for smaller ones with small teams who don't have a data analyst to dive into the massive amount of donor data. Recently this technology has beomce more accessible to organizations with smaller budgets.</p>
-                <br>
-                <p>How does this work? First, the AI will extract donation and engagement data from the organization's customer relationship management (CRM) software and will organize the data by markers such as age, date of the most recent gift, or gift amount.
+                <p>
+                    I thought it would be interesting to analyze how many apartments and homes are being rented out on Airbnb in Seattle as Airbnbs have had a big impact on the number of homes and apartments available to local residents. I downloaded the quarterly AirBnb CSV file for Seattle for January - March 2022 from <a href = "http://insideairbnb.com/get-the-data/">Inside Airbnb</href></a>.
                 </p>
                 <br>
-                <p>Next, the AI analyzes the data and predict how likely an individual will take a certain action (donate again, donate for certain appeals, etc.) These predictions are exported to the CRM to assist in creating targeted campaigns aimed at increasing donor retention, giving frequency, or gift size.</p>
+                <p>
+                    I next had to upload the data from the CSV file to SQL Server which proved to be a bigger pain than I had thought it would be as I wanted 3 different tables for Listings, Hosts, and neighborhoods. This meant taking the listing id and host name, removing duplicate listing id rows and then assigning host ids to each host. The CSV had the neighborhood group and the associated neighborhood for each listing. To avoid assinging a neighborhood id to each unique neighborhood group and neighborhood pair, I decided to just grab the neighborhood group and add an id to each unique group.
+                </p>
                 <br>
-                <p>This technology will save organizations time and money while increasing donations! Which menas non-profits can put more resources toward their mission. </p>
+                <p>
+                    I also learned the importance of making sure that all the data in the CSV looks correct. After uploading all of the data, I found a lot of duplicate listing ids. I went back to the original data file and used the Find Duplicates function in Excel on the listing id column and it found no duplicates. So I was confused and frustrated. I went back to SQL Server and found that the duplicate lisiting ids had a 7 extra 0's at the end with the first few numbers being the same. I went back to the CSV and saw that listing ids had been truncated if they were too long, resulting in the 7 0s when it was uploaded to SQL Server. To solve the issue, I formatted the listing id in the CSV as a number and re-upload the data.
+                </p>
                 <br>
+                <p>Here is my completed database diagram</p>
+                <div id = "Database-Diagram-Screenshot">
+                    <image src="Images/database-diagram.png" alt="database diagram with 3 tables" style="width:900px" class="center"> <image>
+                </div>
+                <p>
+                    Once all if the data was successfully uploaded to my Airbnb database, I was ready to figure out what 
+                    I wante to learn from the data.
+                </p>
+            
   
 
 
