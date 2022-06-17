@@ -1,0 +1,37 @@
+I thought it would be interesting to analyze how many apartments and homes are being rented out on Airbnb. I'm mostly interested in entire homes as this has the biggest impact on the amount of availbale place for rent or for sale to residents.
+Download quarterly AirBnb data for Seattle for Jan - March 2022
+http://insideairbnb.com/get-the-data/
+
+Create new database in SQL server
+
+Create new tables for listings, hosts, neighborhoods
+
+decided to add more columns to the listings data: room type, price, minimum nights, availability
+
+added primary and foreign keys to the tables
+
+uploaded data from a CSV file - had to remove invalid characters such as | from the listing and host names and ensure the number of characters allowed for those column were big enough before I could successfully upload the data to SQL server
+used find and replace to replace |
+used =len() to find character length of names over 100 characters
+
+decided REMOVE THE NEIGHBORHOOD COLUMN AND JUST HAVE THE NEIGHBORHOOD_GROUP SO I COULD EASILY ASSIGN A NEIGHBORHOOD ID TO EACH NEIGHBORHOOD GROUP INSTAD OF THE SMALLER NEIGHBORHOODS
+There was a category called Other Neighborhoods in the neighborhood group, so i decided to pull out the smaller neighborhoods from that, especially since there are such well-known/popular neighborhoods such as Fremont, Wallingford, Greenlake
+***add screenshot of database diagram once complete 
+
+Added primary keys and foreign keys to the tables - 
+found many duplicate listing_ids - went back to look at original CSV and found there were no dupes, but the id's had been truncated resulting in duplicated ids. Had to fix this. Decided to drop all tables and start again to make sure data is accurate
+
+Questions:
+need to find how many dwellings there are total for each neighborhood to see airbnb ratio.
+How many airbnbs are there in each neighborhood? - which has the most? which has the most per dwelling? - look at entire homes/apartments only
+How many have 1 bdrm, 2, 3, 4, 5 plus
+Which hosts have more than one listing and how many do they have? which host has the most
+average price per night for each neighborhood
+highest, lowest and average min night stay overall
+what percent are entire homes/apt. what percent are shared rooms
+short term vs long term rentals
+
+
+
+https://www.towncharts.com/Washington/Housing/Seattle-city-WA-Housing-data.html
+Seattle shows it has a Housing Units of 367,337. 4883 airbnbs listed in Seattle this is 1.3%
