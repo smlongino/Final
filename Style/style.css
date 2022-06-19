@@ -10,12 +10,13 @@
 #hero-image {
     
     height:500px;
-    background-image: url("https://images.pexels.com/photos/5049/forest-trees-fog-foggy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-image: url("https://images.pexels.com/photos/3682567/pexels-photo-3682567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-size: cover;
+    background-position-y: -350px;
 
 }
 #hero-text{
-    color: #373b1f;
+    color: #003352;
     text-align: center;
     padding-top: 60px;
     font-size: 2rem;
@@ -23,7 +24,7 @@
     letter-spacing: 10px;
 }
 #hero-subtext{
-    color: #373b1f;
+    color:#003352;
     text-align: center;
     padding-top: 8px;
     font-size: 1.3rem;
@@ -58,7 +59,7 @@
 .article-title{
     
     font-family: 'Amatic SC', cursive;
-    color: #373b1f;
+    color: #025990;
     letter-spacing: 5px;
     font-size: 1.2rem;
     padding-bottom: 5px;
@@ -75,8 +76,8 @@
 /* article-content is for individual blog pages only */
 .article-content p{
 
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 40px;
+    margin-right: 40px;
     text-align: justify;
     text-justify: inter-word;
     font-family: Arial, Helvetica, sans-serif;
@@ -89,7 +90,7 @@
 /* .title is also for the title on the individual blog pages */
 .title{
     font-family: 'Amatic SC', cursive;
-    color: #373b1f;
+    color: #025990;
     letter-spacing: 5px;
     font-size: 1.2rem;
     text-align: center;
@@ -115,9 +116,9 @@
 
 a{
     font-family: Arial, Helvetica, sans-serif;
-    color:#6C733D;
+    color:#0e75b5;
 
 }
 a:hover{
-    color:  #7fdb6f;
+    color:  #42c2ce;
 }

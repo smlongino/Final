@@ -43,24 +43,10 @@
                 <p>
                     I thought it would be interesting to analyze how many apartments and homes are being rented out on Airbnb in Seattle as Airbnbs have had a big impact on the number of homes and apartments available to local residents. I downloaded the quarterly AirBnb CSV file for Seattle for January - March 2022 from <a href = "http://insideairbnb.com/get-the-data/">Inside Airbnb</href></a>.
                 </p>
-                <br>
                 <p>
-                    I next had to upload the data from the CSV file to SQL Server which proved to be a bigger pain than I had thought it would be as I wanted 3 different tables for Listings, Hosts, and neighborhoods. This meant taking the listing id and host name, removing duplicate listing id rows and then assigning host ids to each host. The CSV had the neighborhood group and the associated neighborhood for each listing. To avoid assinging a neighborhood id to each unique neighborhood group and neighborhood pair, I decided to just grab the neighborhood group and add an id to each unique group.
+                    Before I dive into my process behind organizing the data, here are a few intersting things I learned:
                 </p>
                 <br>
-                <p>
-                    I also learned the importance of making sure that all the data in the CSV looks correct. After uploading all of the data, I found a lot of duplicate listing ids. I went back to the original data file and used the Find Duplicates function in Excel on the listing id column and it found no duplicates. So I was confused and frustrated. I went back to SQL Server and found that the duplicate lisiting ids had a 7 extra 0's at the end with the first few numbers being the same. I went back to the CSV and saw that listing ids had been truncated if they were too long, resulting in the 7 0s when it was uploaded to SQL Server. To solve the issue, I formatted the listing id in the CSV as a number and re-upload the data.
-                </p>
-                <br>
-                <p>Here is my completed database diagram</p>
-                <div id = "Database-Diagram-Screenshot">
-                    <image src="Images/database-diagram.png" alt="database diagram with 3 tables" style="width:900px" class="center"> <image>
-                </div>
-                <br>
-                <p>
-                    Once all if the data was successfully uploaded to my Airbnb database, I was ready to figure out what 
-                    I wanted to learn from the data. Here are some of my findings:
-                </p>
                 <p>
                     There are a total of 4,883 Airbnb listings in Seattle. 4088 of these are where the entire home or apartment is listed vs a private room. Almost 40% of the entire home/apt listings are longterm listings with a minimum night stay of 30 nights.
                 </p>
@@ -75,10 +61,46 @@
                 <image src="Images/NumListingsPerHost.png" alt="Airbnb listing data" style="width:900px" class="center"> <image>
                 <br>
                 <p>
-                Alan has highest average price and has the lisiting with the highest price. He has 4 listings
+                     Alan has only 4 listings and has the highest average price per night and of course and they have the lisiting with the highest price per night at $3,750. 
                 </p>
                 <br>
                 <image src="Images/HighestPricePerNight.png" alt="Airbnb listing data" style="width:900px" class="center"> <image>
+                <br>
+                <p>
+                    I also wanted to see the potential each host could make on each booking on the condition the guest only stayed the minimum number of nights. Alan is the winner again as his minimum stay is 7 months at $3,750 per night! After seeing this data, I think the price may be per month instead of per night. However, the data source does not specify this. So like all data, <b>you need to make sure the data is accurate and reliable and that you have all the information you need.</b>
+                </p>
+                <br>
+                <image src="Images/HighestIncomePerBooking.png" alt="Airbnb listing data" style="width:900px" class="center"> <image>
+                <br>
+                <P>
+                    I was curious which hosts had the potential to generate the most income per month, on the condition that all of their properties are fully booked each month. 
+                    Excluding the 2 companies, Bluegrounds and Vacasa, Casey has the highest at 405,270! Casey does have 74 properties so they must be a company instead of a single owner.
+                </P> 
+                <br>
+                <image src="Images/PotentialMonthlyIncome.png" alt="Airbnb listing data" style="width:900px" class="center"> <image>
+                <br>
+                <p>
+                    I also wanted to see the distribution of rentals in the Seattle area. The most listings start in downtown Seattle (1,902 listings in downtown, Captiol Hill, Queen Anne, Central District) and spread out to surrounding neighborhoods from there. This makes sense as many people left the downtown area during the pandemic to move to less expensive and safer neighborhoods, so there are more properties available for rent there.
+                </p>
+                <br>
+                <image src="Images/listings_by_neighborhood.png" alt="Airbnb listing data" style="width:900px" class="center"> <image>
+                <br>
+                <p>
+                    I next had to upload the data from the CSV file to SQL Server which proved to be a bigger pain than I had thought it would be as I wanted 3 different tables for Listings, Hosts, and neighborhoods. This meant taking the listing id and host name, removing duplicate listing id rows and then assigning host ids to each host. The CSV had the neighborhood group and the associated neighborhood for each listing. To avoid assinging a neighborhood id to each unique neighborhood group and neighborhood pair, I decided to just grab the neighborhood group and add an id to each unique group.
+                </p>
+                <br>
+                <p>
+                    I also learned the importance of making sure that all the data in the CSV looks correct. After uploading all of the data, I found a lot of duplicate listing ids. I went back to the original data file and used the Find Duplicates function in Excel on the listing id column and it found no duplicates. So I was confused and frustrated. I went back to SQL Server and found that the duplicate lisiting ids had a 7 extra 0's at the end with the first few numbers being the same. I went back to the CSV and saw that listing ids had been truncated if they were too long, resulting in the 7 0s when it was uploaded to SQL Server. To solve the issue, I formatted the listing id in the CSV as a number and re-upload the data.
+                </p>
+                <br>
+                <p>Here is my completed database diagram</p>
+                <div id = "Database-Diagram-Screenshot">
+                    <image src="Images/database-diagram.png" alt="database diagram with 3 tables" style="width:900px" class="center"> <image>
+                </div>
+                <br>
+
+
+                
 
 
 
